@@ -21,13 +21,12 @@ this.WorkerPool.prototype.addWorkerPromise = function(workerPromise) {
 }
 
 this.WorkerPool.prototype.releaseWorkerPromise = function() {
-  console.log(this.pool.length);
   if(this.workerPromises.length > 0) {
     if(this.pool.length > 0) {
       var workerPromise = this.workerPromises.shift();
       var worker = this.pool.shift();     
-      var wp = workerPromise.run(worker);
-      wp.then(function success(worker) {
+      var runPromise = workerPromise.run(worker);
+      runPromise.then(function success(worker) {
         this.pool.push(worker);
         this.releaseWorkerPromise();
       }.bind(this));
@@ -55,5 +54,6 @@ this.WorkerPromise.prototype.run = function(worker) {
 
   this.worker.onerror = this.onerror;
   this.worker.postMessage(this.workload);
+
   return this.promise;
 }
