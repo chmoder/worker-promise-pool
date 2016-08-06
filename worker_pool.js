@@ -1,5 +1,5 @@
-function WorkerPool(url) {
-  this.numberOfWorkers = 16;
+function WorkerPool(numberOfWorkers, url) {
+  this.numberOfWorkers = numberOfWorkers;
   this.workerPromises = [];
   this.pool = [];
   this.promises = [];
