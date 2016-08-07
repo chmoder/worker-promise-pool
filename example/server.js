@@ -22,11 +22,6 @@ http.createServer(function (req, res) {
       return;
     }
   } 
-    res.end();
-    return;
-  res.writeHead(404, {'Content-Type': 'text/plain'});
-  res.write('404 Not Found\n');
-  res.end();
-}).listen(8765, 'localhost');
+}).listen(8080, 'localhost');
 
-console.log('mosaic server running on port 8765');
+console.log('mosaic server running on port 8080');

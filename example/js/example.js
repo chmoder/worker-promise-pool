@@ -1,6 +1,6 @@
 var numberOfWorkers = 8;
-var workerPool = new WorkerPool(numberOfWorkers, 'js/example_worker.js');
 var completedTasks = 0;
+var workerPool = new WorkerPool(numberOfWorkers, 'js/example_worker.js');
 
 var callback = function(data) {
   var message = data[0];
