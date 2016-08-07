@@ -1,15 +1,24 @@
-var workerPool = new WorkerPool(8, 'js/example_worker.js');
+var numberOfWorkers = 8;
+var workerPool = new WorkerPool(numberOfWorkers, 'js/example_worker.js');
+var completedTasks = 0;
 
 var callback = function(data) {
-  var timeout = data[0];
-  console.log('timeout: ' + timeout);
+  var message = data[0];
+  document.body.innerHTML += '<h4>'+message+'</h4>';
 
-document.body.innerHTML += '<h3>Timeout: '+timeout+'</h3>';
+  if(++completedTasks == numberOfWorkers) {
+    document.body.innerHTML += '<h2>End!</h2>';
+  }
 };
 
-for(var i = 0; i < workerPool.numberOfWorkers; ++i) {
-  var workerPromise = new WorkerPromise();
-  workerPromise.workload = [];
-  workerPromise.onmessage = callback;
-  workerPool.addWorkerPromise(workerPromise);
+
+var example = function() {
+  document.body.innerHTML += '<h2>Start!</h2>';
+
+  for(var i = 0; i < workerPool.numberOfWorkers; ++i) {
+    var workerPromise = new WorkerPromise();
+    workerPromise.workload = [];
+    workerPromise.onmessage = callback;
+    workerPool.addWorkerPromise(workerPromise);
+  }
 }

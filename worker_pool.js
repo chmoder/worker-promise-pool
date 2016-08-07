@@ -46,10 +46,10 @@ this.WorkerPromise.prototype.run = function(worker) {
   this.worker = worker;
 
   this.promise = new Promise(function(resolve, reject) {   
-      this.worker.onmessage = function(e) {
-        this.onmessage(e.data);
-        resolve(this.worker);
-      }.bind(this);
+    this.worker.onmessage = function(e) {
+      this.onmessage(e.data);
+      resolve(this.worker);
+    }.bind(this);
   }.bind(this));
 
   this.worker.onerror = this.onerror;

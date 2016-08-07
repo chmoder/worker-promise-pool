@@ -1,9 +1,7 @@
 onmessage = function(e) {
-  // create timeout for message callback work simulation
-  var timeout = Math.floor(Math.random() * 15000);
-  setTimeout(function(){
-    postMessage([timeout]);
-  },
-    timeout
-  );
+  for(var i = 0; i <= 777; ++i) {
+    if(i == 777) {
+      postMessage(['It Worked!']);
+    }
+  }
 };
