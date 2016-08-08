@@ -8,6 +8,7 @@ var callback = function(data) {
 
   if(++completedTasks == numberOfWorkers) {
     document.body.innerHTML += '<h2>End!</h2>';
+    workerPool.endWorkers();
   }
 };
 

@@ -15,6 +15,15 @@ this.WorkerPool.prototype.startWorkers = function() {
   }
 };
 
+this.WorkerPool.prototype.endWorkers = function() {
+  for(var i = 0; i < this.numberOfWorkers; ++i) {
+    var worker = this.pool[i];
+    worker.terminate();
+  }
+  this.pool = [];
+};
+
+
 this.WorkerPool.prototype.addWorkerPromise = function(workerPromise) {
   this.workerPromises.push(workerPromise);
   this.releaseWorkerPromise();
