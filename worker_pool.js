@@ -16,8 +16,8 @@ this.WorkerPool.prototype.startWorkers = function() {
 };
 
 this.WorkerPool.prototype.endWorkers = function() {
-  while(pool.length > 0) {
-    var worker = pool.pop();
+  while(this.pool.length > 0) {
+    var worker = this.pool.pop();
     worker.terminate();
   }
   this.pool = [];
