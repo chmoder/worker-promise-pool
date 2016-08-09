@@ -18,5 +18,5 @@ var workerPromise = new WorkerPromise();
 workerPromise.workload = [];
 workerPromise.onmessage = callback;
 workerPool.addWorkerPromise(workerPromise);
-workerPool.endworkers();
+workerPool.endWorkers();
 ```
