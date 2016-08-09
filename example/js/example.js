@@ -12,7 +12,6 @@ var callback = function(data) {
   }
 };
 
-
 var example = function() {
   document.body.innerHTML += '<h2>Start!</h2>';
 
