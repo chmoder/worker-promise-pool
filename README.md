@@ -6,6 +6,9 @@ Create your pool by passing the number of workers you wouild like and the path t
 Then create a WorkerPromise, workload is the data the worker needs during execution.
 Set onmessage to a callback you would like executed after your worker completes.  Callback will have the data from the worker script if you put include it in the "postMessage" of your worker script.
 
+[Try the example!](https://chmoder.github.io/worker-promise-pool/)
+
+
 ```javascript
 // create a pool for working on WorkerPromise's with a given number of workers
 var numberOfWorkers = 8;
