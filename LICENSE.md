@@ -1,4 +1,4 @@
-Copyright 2015 Thomas Cross  All rights reserved.
+Copyright 2016 Thomas Cross  All rights reserved.
 
                                  Apache License
                            Version 2.0, January 2004
